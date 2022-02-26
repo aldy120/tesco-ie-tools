@@ -1,0 +1,17 @@
+
+const payload = {
+    "items": [
+        {
+            "id": "257231200",
+            "newValue": 12,
+            "newUnitChoice": "pcs",
+            "substitutionOption": "FindSuitableAlternative"
+        },
+        {
+            "id": "298040830",
+            "newValue": 1,
+            "newUnitChoice": "pcs",
+            "substitutionOption": "FindSuitableAlternative"
+        }
+    ], "returnUrl": "/groceries/en-IE/trolley"
+}

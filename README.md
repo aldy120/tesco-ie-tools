@@ -6,7 +6,7 @@ https://github.com/aldy120/testco-ie-tools/raw/master/index.user.js
 快速合併兩個帳戶的購物車
 
 # 原理
-將被匯入的單全部新增到目前的單裡面，如果要新增的選項已經在目前單會累加。
+將被匯入的單全部新增到目前的單裡面，如果要新增的選項已經在目前單會累加數量。目前無法支援公斤等單位。
 
 # 觸發條件
 到[購物車的頁面](https://www.tesco.ie/groceries/en-IE/trolley)，然後**重整頁面**。

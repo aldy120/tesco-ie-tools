@@ -1,13 +1,15 @@
 // ==UserScript==
-// @name         testco-tools
+// @name         testco-ie-tools
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Enhance testco cart
-// @author       Lichi Chen
-// @require      file:///
-// @match        https://www.tesco.ie/groceries/en-IE/trolley
+// @author       aldy12345@gmail.com
+// @match        https://www.tesco.ie/groceries/en-IE/trolley*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=mozilla.org
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/aldy120/testco-ie-tools/master/index.user.js
+// @downloadURL  https://raw.githubusercontent.com/aldy120/testco-ie-tools/master/index.user.js
+// @run-at       document-body
 // ==/UserScript==
 
 (function () {

@@ -1,16 +1,15 @@
-# Get the current list
+# 安裝
+https://github.com/aldy120/testco-ie-tools/raw/master/index.user.js
 
-# cart
-  -d @cart.json \
-  --data-raw '{"items":[{"id":"268290106","newValue":30,"newUnitChoice":"pcs","substitutionOption":"FindSuitableAlternative"},{"id":"298040830","newValue":4,"newUnitChoice":"pcs","substitutionOption":"FindSuitableAlternative"}],"returnUrl":"/groceries/en-IE/trolley"}' \
+# 用途
+快速合併兩個帳戶的購物車
 
-# Steps
-1. 傳一個 PUT body=[]
-2. 將輸出轉換成購物單，即為目前的單
-3. 與第二個人的單合併
-4. PUT 第二次，輸入是合併完成的
+# 觸發條件
+到[購物車的頁面](https://www.tesco.ie/groceries/en-IE/trolley)，然後**重整頁面**。
 
-# 
-```json
-'{"items":[],"returnUrl":"/groceries/en-IE/trolley"}'
-```
+# 用法
+1. 從某帳戶匯出購物車
+2. 到另一個帳戶匯入購物車
+![added.png](added.png)
+
+

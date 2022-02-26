@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Enhance testco cart
 // @author       aldy12345@gmail.com
-// @match        https://www.tesco.ie/groceries/en-IE/trolley*
+// @match        https://www.tesco.ie/groceries*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=mozilla.org
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/aldy120/testco-ie-tools/master/index.user.js

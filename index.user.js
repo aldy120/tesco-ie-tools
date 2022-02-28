@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Enhance testco cart
 // @author       aldy12345@gmail.com
-// @match        https://www.tesco.ie/groceries*
+// @match        https://www.tesco.ie/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=mozilla.org
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/aldy120/testco-ie-tools/master/index.user.js
@@ -119,10 +119,39 @@
         template.innerHTML = html;
         return template.content.firstChild;
     }
-    
-    const toolsNode = htmlToElement('<div><div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Import from JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><textarea id="import-area-tesco-tools-monkey" placeholder="json to be import"></textarea></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="import-btn-tesco-tools-monkey" href="#" class="button button-primary">Import Bucket</a><div class="spinner hidden"></div></div></div></div></div><div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Export to JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><span id="export-area-tesco-tools-monkey">json to be export</span></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="export-btn-tesco-tools-monkey" href="#" class="button button-primary">Export Bucket</a><div class="spinner hidden"></div></div></div></div></div></div>')
-    const d = document.querySelector('#main > div.main__content > div > div.trolley--wrapper > div > div > div.full-trolley--grid > div.full-trolley--content > div:nth-child(3) > div')
-    d.append(toolsNode)
+
+    const toolsHTML = `
+        <div style="
+                position: fixed;
+                top: 60%;
+                left: -50%;
+                bottom: 0;
+                height: 100%;
+                width: 50%;
+                background: white;
+                z-index: 1;
+                border-radius: 6px;
+                border: 1px solid #b4b4b4;
+                transition: all 0.5s ease 0s;
+            " id="tesco-tools">
+            <div style="
+                position: absolute;
+                left: 100%;
+                width: 60px;
+                bottom: 60%;
+                margin: 0;
+            " class="button button-primary" id="tesco-tools-monkey-btn">Tool</div>
+            <div style="
+                padding: 32px 20px;
+            ">
+                <div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Import from JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><textarea id="import-area-tesco-tools-monkey" placeholder="json to be import"></textarea></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="import-btn-tesco-tools-monkey" href="#" class="button button-primary">Import Bucket</a><div class="spinner hidden"></div></div></div></div></div><div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Export to JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><span id="export-area-tesco-tools-monkey">json to be export</span></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="export-btn-tesco-tools-monkey" href="#" class="button button-primary">Export Bucket</a><div class="spinner hidden"></div></div></div></div></div>
+            </div>
+        </div>
+        `
+
+    const toolsNode = htmlToElement(toolsHTML);
+    const d = document.getElementById('content');
+    d.append(toolsNode);
 
     function createNewItemLists(newList, oldList) {
         return newList.map(newItem => {
@@ -146,6 +175,7 @@
 
     const exportTextarea = document.querySelector('#export-area-tesco-tools-monkey')
     const exportBtn = document.querySelector('#export-btn-tesco-tools-monkey')
+    const toolBtn = document.querySelector('#tesco-tools-monkey-btn')
 
     let repeatClickImport = false;
 
@@ -175,6 +205,9 @@
         const content = JSON.stringify(list)
         document.querySelector('#export-area-tesco-tools-monkey').textContent = content
     })
+
+    toolBtn.addEventListener('click', async (event) => {
+        parseInt(toolsNode.style.left) < 0 ? toolsNode.style.left = "0": toolsNode.style.left = "-50%";
+    })
+
 })();
-
-

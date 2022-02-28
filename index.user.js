@@ -123,22 +123,23 @@
     const toolsHTML = `
         <div style="
                 position: fixed;
-                top: 60%;
-                left: -50%;
+                top: 0;
+                left: -33%;
                 bottom: 0;
                 height: 100%;
-                width: 50%;
+                width: 33%;
                 background: white;
-                z-index: 1;
+                z-index: 100;
                 border-radius: 6px;
                 border: 1px solid #b4b4b4;
                 transition: all 0.5s ease 0s;
+                box-shadow: 2px 2px 5px 3px #00000024;
             " id="tesco-tools">
             <div style="
                 position: absolute;
                 left: 100%;
                 width: 60px;
-                bottom: 60%;
+                bottom: 0;
                 margin: 0;
             " class="button button-primary" id="tesco-tools-monkey-btn">Tool</div>
             <div style="
@@ -207,7 +208,7 @@
     })
 
     toolBtn.addEventListener('click', async (event) => {
-        parseInt(toolsNode.style.left) < 0 ? toolsNode.style.left = "0": toolsNode.style.left = "-50%";
+        parseInt(toolsNode.style.left) < 0 ? toolsNode.style.left = "0": toolsNode.style.left = "-33%";
     })
 
 })();

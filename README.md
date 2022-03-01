@@ -17,5 +17,6 @@ https://github.com/aldy120/testco-ie-tools/raw/master/index.user.js
 # 用法
 1. 從某帳戶匯出購物車
 2. 到另一個帳戶匯入購物車
-![added.png](added.png)
+![tools.png](tools.png)
+![tools-2.png](tools-2.png)
 

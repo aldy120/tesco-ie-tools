@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         testco-ie-tools
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Enhance testco cart
 // @author       aldy12345@gmail.com
 // @match        https://www.tesco.ie/*

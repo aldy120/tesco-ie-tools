@@ -1,1 +1,106 @@
-[{"id":"268290106","newValue":30,"newUnitChoice":"pcs","substitutionOption":"FindSuitableAlternative"},{"id":"298040830","newValue":4,"newUnitChoice":"pcs","substitutionOption":"FindSuitableAlternative"}]
+[
+    {
+        "id": "265126054",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Boyne Valley Squeezy Honey Plus 33% Extra Free",
+        "cost": 3.29
+    },
+    {
+        "id": "254855526",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Evian Natural Mineral Water 6 X 500 Ml",
+        "cost": 3.69
+    },
+    {
+        "id": "304365448",
+        "newValue": 2,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Irish Boneless Loin Pork Chops 523G",
+        "cost": 6
+    },
+    {
+        "id": "293687406",
+        "newValue": 2,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Family Pack Broccoli",
+        "cost": 1.98
+    },
+    {
+        "id": "257231200",
+        "newValue": 2,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Broccoli Loose",
+        "cost": 1.42
+    },
+    {
+        "id": "275280804",
+        "newValue": 7,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Bananas Loose",
+        "cost": 1.61
+    },
+    {
+        "id": "250005606",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Fresh Milk 2 Litre",
+        "cost": 1.69
+    },
+    {
+        "id": "301979988",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Irish Chicken Drumstick 1.203Kg",
+        "cost": 3
+    },
+    {
+        "id": "298040830",
+        "newValue": 4,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Sweet Potatoes 800G",
+        "cost": 3.96
+    },
+    {
+        "id": "251495069",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Roasted Salted Pistachio Nuts 150G",
+        "cost": 1.29
+    },
+    {
+        "id": "299335031",
+        "newValue": 2,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Closed Cup Mushrooms 650G",
+        "cost": 3.98
+    },
+    {
+        "id": "266369231",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Medium Irish Egg 18 Pack",
+        "cost": 2.85
+    },
+    {
+        "id": "288116774",
+        "newValue": 1,
+        "newUnitChoice": "pcs",
+        "substitutionOption": "FindSuitableAlternative",
+        "title": "Tesco Fun-Sized Easy Peeler 500G",
+        "cost": 0.85
+    }
+]

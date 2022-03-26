@@ -97,13 +97,14 @@
         });
 
         cart = await stream.then(r => r.json())
-
+        console.log(cart.items)
         const items = cart.items.map(x => ({
             id: x.product.id,
             newValue: x.quantity,
             newUnitChoice: x.customerUnitChoice,
             substitutionOption: x.substitutionOption,
-            title: x.product.title
+            title: x.product.title,
+            cost: x.cost
         }))
 
         if (items.some(x => x.newUnitChoice !== 'pcs')) {

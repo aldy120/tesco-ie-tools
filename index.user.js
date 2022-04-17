@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         testco-ie-tools
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Enhance testco cart
 // @author       aldy12345@gmail.com
 // @match        https://www.tesco.ie/*
@@ -146,7 +146,7 @@
             <div style="
                 padding: 32px 20px;
             ">
-                <div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Import from JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><textarea id="import-area-tesco-tools-monkey" placeholder="json to be import"></textarea></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="import-btn-tesco-tools-monkey" href="#" class="button button-primary">Import Bucket</a><div class="spinner hidden"></div></div></div></div></div><div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Export to JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><span id="export-area-tesco-tools-monkey">json to be export</span></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="export-btn-tesco-tools-monkey" href="#" class="button button-primary">Export Bucket</a><div class="spinner hidden"></div></div></div></div></div>
+                <div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Import from JSON</h2><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><textarea id="import-area-tesco-tools-monkey" placeholder="json to be import"></textarea></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="import-btn-tesco-tools-monkey" href="#" class="button button-primary">Import Bucket</a><div class="spinner hidden"></div></div></div></div></div><div class="trolley-order-summary--container"><div class="trolley-order-summary -trolley"><h2 class="trolley-order-summary--large-header">Export to JSON</h2><button id="copy-export-json">Copy text</button><div class="trolley-surcharge-warning"><div class="trolley-surcharge-warning--link"><div><textarea id="export-area-tesco-tools-monkey">json to be export</textarea></div></div></div><div class="order-summary--info"></div><div class="order-summary--rows"><div><div class="overlay-spinner--overlay" data-auto="overlay-spinner"></div></div><div class="accordion trolley-order-summary--accordion" data-auto="accordion"><button                        class="accordion--button" aria-controls="accordion-order-summary" aria-expanded="false"                        type="button"><span class="accordion--title">View more</span><span                            class="accordion--icon icon-chevron-down-small-blue"></span></button><div class="accordion--content" id="accordion-order-summary"><div></div></div></div></div></div><div class="trolley-order-summary--button hidden-small-medium -trolley"><div data-auto="continue-checkout-button" class="trolley-order-summary--button"><div class="button-with-feedback undefined"><a id="export-btn-tesco-tools-monkey" href="#" class="button button-primary">Export Bucket</a><div class="spinner hidden"></div></div></div></div></div>
             </div>
         </div>
         `
@@ -178,6 +178,7 @@
     const exportTextarea = document.querySelector('#export-area-tesco-tools-monkey')
     const exportBtn = document.querySelector('#export-btn-tesco-tools-monkey')
     const toolBtn = document.querySelector('#tesco-tools-monkey-btn')
+    const copyBtn = document.querySelector('#copy-export-json')
 
     let repeatClickImport = false;
 
@@ -204,12 +205,30 @@
     exportBtn.addEventListener('click', async (event) => {
         event.preventDefault();
         const list = await getCurrentCart()
-        const content = JSON.stringify(list)
+        const content = JSON.stringify(list, null, 4)
         document.querySelector('#export-area-tesco-tools-monkey').textContent = content
     })
 
     toolBtn.addEventListener('click', async (event) => {
-        parseInt(toolsNode.style.left) < 0 ? toolsNode.style.left = "0": toolsNode.style.left = "-33%";
+        parseInt(toolsNode.style.left) < 0 ? toolsNode.style.left = "0" : toolsNode.style.left = "-33%";
     })
+
+    // copyBtn.addEventListener('click',)
+
+    copyBtn.addEventListener('click', onClickCopyExport)
+    async function onClickCopyExport() {
+        /* Get the text field */
+        var copyText = document.getElementById("export-area-tesco-tools-monkey");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        await navigator.clipboard.writeText(copyText.textContent);
+
+        /* Alert the copied text */
+        alert("Copied the text: " + copyText.textContent);
+    }
 
 })();
